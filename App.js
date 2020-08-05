@@ -10,10 +10,12 @@ import PlateDetail from './views/PlateDetail';
 import OrderResume from './views/OrderResume';
 import Login from './views/Login';
 import ProgressOrder from './views/ProgressOrder';
-import Form from './views/Form';
+import FormOrder from './views/FormOrder';
 
 import FirebaseState from './context/firebase/firebaseState';
 import PedidoState from './context/orders/ordersState';
+import ButtonResume from './components/ButtonResume';
+import ButtonKeepOrder from './components/ButtonKeepOrder';
 
 const Stack = createStackNavigator();
 
@@ -46,6 +48,7 @@ const App = () => {
                 component={Menu}
                 options={{
                   title: 'Menu',
+                  headerRight: (props) => <ButtonResume />,
                 }}
               />
               <Stack.Screen
@@ -59,7 +62,7 @@ const App = () => {
                 name="OrderResume"
                 component={OrderResume}
                 options={{
-                  title: 'Resumen pedido',
+                  title: 'Mi orden',
                 }}
               />
               <Stack.Screen
@@ -78,7 +81,7 @@ const App = () => {
               />
               <Stack.Screen
                 name="OrderForm"
-                component={Form}
+                component={FormOrder}
                 options={{
                   title: 'Ordernar',
                 }}

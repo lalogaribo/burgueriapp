@@ -9,12 +9,23 @@ const globals = StyleSheet.create({
     flex: 1,
   },
   button: {
-    backgroundColor: '#FFDA00',
+    backgroundColor: '#909ef5',
   },
   textButton: {
     textTransform: 'uppercase',
     fontWeight: 'bold',
     color: '#000',
+  },
+  title: {
+    textAlign: 'center',
+    marginTop: 20,
+    fontSize: 25,
+  },
+  quantity: {
+    marginVertical: 15,
+    textAlign: 'center',
+    fontSize: 20,
+    fontWeight: 'bold',
   },
 });
 

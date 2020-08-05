@@ -1,6 +1,8 @@
 import React, {useEffect, useContext, Fragment} from 'react';
+import {useNavigation} from '@react-navigation/native';
 import {StyleSheet} from 'react-native';
 import FirebaseContext from '../context/firebase/firebaseContext';
+import OrdersContext from '../context/orders/ordersContext';
 import {
   Container,
   Separator,
@@ -16,6 +18,9 @@ import globals from '../styles/global';
 
 const Menu = () => {
   const {getPlates, menu} = useContext(FirebaseContext);
+  const {selectPlate} = useContext(OrdersContext);
+
+  const navigation = useNavigation();
 
   useEffect(() => {
     getPlates();
@@ -49,7 +54,12 @@ const Menu = () => {
             return (
               <Fragment key={id}>
                 {showategory(category, i)}
-                <ListItem>
+                <ListItem
+                  onPress={() => {
+                    const {inStock, ...plate2} = plate;
+                    selectPlate(plate2);
+                    navigation.navigate('PlateDetail');
+                  }}>
                   <Thumbnail source={{uri: image}} large />
                   <Body>
                     <Text>{name}</Text>
