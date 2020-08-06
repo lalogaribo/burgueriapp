@@ -15,7 +15,6 @@ import {
   FooterTab,
   Text,
   Button,
-  Icon,
 } from 'native-base';
 
 import OrdersContext from '../context/orders/ordersContext';
@@ -58,7 +57,7 @@ const OrderResume = () => {
             try {
               const ordr = await firebase.db.collection('orders').add(orderObj);
               saveOrderId(ordr.id);
-              navigation.navigate('OrderProgress');
+              navigation.replace('OrderProgress');
             } catch (error) {
               console.log(error);
             }

@@ -11,6 +11,7 @@ const ProgressOrder = () => {
   const navigation = useNavigation();
   const {order, orderID} = useContext(OrdersContext);
   const [time, setTime] = useState(0);
+  const [currentOrder, setCurrentOrder] = useState(false);
 
   useEffect(() => {
     const getOrder = () => {
@@ -19,9 +20,11 @@ const ProgressOrder = () => {
         .doc(orderID)
         .onSnapshot(function (doc) {
           setTime(doc.data().time);
+          setCurrentOrder(doc.data());
         });
     };
     getOrder();
+    console.log(currentOrder);
   }, []);
 
   const renderTimer = ({minutes, seconds}) => {
@@ -41,7 +44,7 @@ const ProgressOrder = () => {
             </Text>
           </>
         )}
-        {time > 0 && (
+        {time > 0 && !currentOrder.complete && (
           <>
             <Text style={styles.orderTime}>Su orden estara lista en:</Text>
             <Text>
@@ -51,6 +54,9 @@ const ProgressOrder = () => {
               />
             </Text>
           </>
+        )}
+        {currentOrder.complete && (
+          <Text style={styles.orderTime}>Su orden esta lista.</Text>
         )}
       </View>
     </Container>

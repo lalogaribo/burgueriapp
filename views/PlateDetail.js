@@ -43,7 +43,7 @@ const PlateDetail = () => {
           <Button
             style={globals.button}
             onPress={() => navigation.navigate('OrderForm')}>
-            <Text style={globals.textButton}>Ordenar</Text>
+            <Text style={globals.textButton}>Agregar a la orden</Text>
           </Button>
         </FooterTab>
       </Footer>

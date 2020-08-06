@@ -15,7 +15,6 @@ import FormOrder from './views/FormOrder';
 import FirebaseState from './context/firebase/firebaseState';
 import PedidoState from './context/orders/ordersState';
 import ButtonResume from './components/ButtonResume';
-import ButtonKeepOrder from './components/ButtonKeepOrder';
 
 const Stack = createStackNavigator();
 
@@ -26,7 +25,7 @@ const App = () => {
         <PedidoState>
           <NavigationContainer>
             <Stack.Navigator
-              initialRouteName="NewOrder"
+              initialRouteName="Login"
               screenOptions={{
                 headerStyle: {
                   backgroundColor: '#909ef5',
